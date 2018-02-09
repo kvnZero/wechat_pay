@@ -15,7 +15,7 @@ class wechat_pay():
 	@itchat.msg_register(itchat.content.SHARING)
 	def text_reply(msg):
 		returnmsg = {}
-		returnmsg.content = msg.Content
+		returnmsg['content'] = msg.Content
 
 		try:
 			returnmsg['fromuser'] = msg.fromUserName
