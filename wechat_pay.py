@@ -1,4 +1,4 @@
-import itchat
+﻿import itchat
 import re
 import time
 import datetime
@@ -20,7 +20,7 @@ def text_reply(msg):
 
 	if returnmsg['note'] and returnmsg['money']:
 		if PRINT_LOG:
-			logstr = "From:%s, Money:%s, Note:%s, Time:%s" % (returnmsg.fromuser, returnmsg.money, returnmsg.note, returnmsg.createtime)
+			logstr = "From:%s, Money:%s, Note:%s, Time:%s" % (returnmsg['fromuser'], returnmsg['money'], returnmsg['note'], returnmsg['createtime'])
 			print(logstr)
 		else:
 			return returnmsg
