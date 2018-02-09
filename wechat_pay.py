@@ -18,10 +18,10 @@ class wechat_pay():
 		returnmsg.content = msg.Content
 
 		try:
-			returnmsg.fromuser = msg.fromUserName
-			returnmsg.note = re.findall(re.compile(r'付款方备注：(.*?)\n'), content)[0]
-			returnmsg.money = re.findall(re.compile(r'微信支付收款(.*?)元'), content)[0]
-			returnmsg.createtime = datetime.datetime.utcnow()
+			returnmsg['fromuser'] = msg.fromUserName
+			returnmsg['note'] = re.findall(re.compile(r'付款方备注：(.*?)\n'), content)[0]
+			returnmsg['money'] = re.findall(re.compile(r'微信支付收款(.*?)元'), content)[0]
+			returnmsg['createtime'] = datetime.datetime.utcnow()
 		except IndexError:
 			pass
 
