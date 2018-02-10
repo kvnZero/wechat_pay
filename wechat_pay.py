@@ -1,4 +1,4 @@
-import itchat
+﻿import itchat
 import re
 import time
 import datetime
@@ -17,12 +17,22 @@ def text_reply(msg):
 		returnmsg['note'] = re.findall(re.compile(r'付款方备注：(.*?)\n'), returnmsg['content'])[0]
 	except IndexError:
 		returnmsg['note'] = ""
+<<<<<<< HEAD
 		
 	if PRINT_LOG:
 		logstr = "From:%s, Money:%s, Note:%s, Time:%s" % (returnmsg['fromuser'], returnmsg['money'], returnmsg['note'], returnmsg['createtime'])
 		print(logstr)
 	else:
 		return returnmsg
+=======
+
+	if returnmsg['note'] and returnmsg['money']:
+		if PRINT_LOG:
+			logstr = "From:%s, Money:%s, Note:%s, Time:%s" % (returnmsg['fromuser'], returnmsg['money'], returnmsg['note'], returnmsg['createtime'])
+			print(logstr)
+		else:
+			return returnmsg
+>>>>>>> af3fce88862002cf54b4306794fc8efef1a2d5c3
 
 if __name__ == '__main__':
 	itchat.auto_login()
