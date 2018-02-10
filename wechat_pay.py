@@ -17,13 +17,12 @@ def text_reply(msg):
 		returnmsg['note'] = re.findall(re.compile(r'付款方备注：(.*?)\n'), returnmsg['content'])[0]
 	except IndexError:
 		returnmsg['note'] = ""
-
-	if returnmsg['note'] and returnmsg['money']:
-		if PRINT_LOG:
-			logstr = "From:%s, Money:%s, Note:%s, Time:%s" % (returnmsg.fromuser, returnmsg.money, returnmsg.note, returnmsg.createtime)
-			print(logstr)
-		else:
-			return returnmsg
+		
+	if PRINT_LOG:
+		logstr = "From:%s, Money:%s, Note:%s, Time:%s" % (returnmsg['fromuser'], returnmsg['money'], returnmsg['note'], returnmsg['createtime'])
+		print(logstr)
+	else:
+		return returnmsg
 
 if __name__ == '__main__':
 	itchat.auto_login()
