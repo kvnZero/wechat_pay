@@ -1,3 +1,4 @@
+#coding=utf8
 from sqlalchemy import Column, String, create_engine, Integer, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
