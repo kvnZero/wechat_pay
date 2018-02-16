@@ -1,4 +1,5 @@
-﻿import itchat
+#coding=utf8
+import itchat
 import re
 import time
 import datetime
@@ -27,5 +28,5 @@ def text_reply(msg):
 			return returnmsg
 
 if __name__ == '__main__':
-	itchat.auto_login()
+	itchat.auto_login(True)
 	itchat.run()
