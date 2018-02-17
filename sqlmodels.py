@@ -18,7 +18,24 @@ class Order(Base):
 
     def __repr__(self):
         return "<Order(fromuser='%s', money='%s', createtime='%s', note='%s')>" % (self.fromuser, self.money, self.createtime, self.note)
-        
+
+class User(Base):
+    __tablename__ = 'user'
+    id = Column(Integer, primary_key=True)
+    user =  Column(String(255))
+    wechat_user = Column(String(255))
+    money =  Column(String(255))
+    lastmoney = Column(String(255))
+    orders= Column(String(255))
+    createtime = Column(DateTime)
+    lastdotime = Column(DateTime)
+
+class Log(Base):
+    __tablename__ = 'log'
+    id = Column(Integer, primary_key=True)
+    douser = Column(String(255))
+    dowhat = Column(String(255))
+    time = Column(DateTime)
 
 engine = create_engine(baseurl)
 #create sqlite
