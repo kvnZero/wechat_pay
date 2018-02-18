@@ -37,6 +37,8 @@ class Log(Base):
     dowhat = Column(String(255))
     time = Column(DateTime)
 
+
+
 engine = create_engine(baseurl)
 #create sqlite
 #Base.metadata.create_all(engine)
