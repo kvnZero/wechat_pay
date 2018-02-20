@@ -3,7 +3,7 @@ import itchat
 import re
 import time
 from datetime import datetime
-from sqlmodels import Order, User, Log, session
+from sqlmodels import Order, User, Log, Goods, session
 PRINT_LOG = True
 
 def save_in_order(returnmsg):
@@ -24,7 +24,11 @@ def add_in_user(returnmsg):
 		user = User()
 		#next time write...
 
-
+def buy_goods(returnmsg):
+	if str(returnmsg['note']).isdigit():
+		goods = session.query(Goods).filter_by(id=returnmsg['note']).first()
+	else:
+		goods = session.query(Goods).filter_by(name=returnmsg['name']).first()
 @itchat.msg_register(itchat.content.SHARING)
 def text_reply(msg):
 	returnmsg = {}
