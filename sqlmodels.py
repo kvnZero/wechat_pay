@@ -42,9 +42,7 @@ class Goods(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(255))
     price = Column(String(255))
-    discount = Column(String(255))
     quantity = Column(Integer)
-
 
 engine = create_engine(baseurl)
 #create sqlite
